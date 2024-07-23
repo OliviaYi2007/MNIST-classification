@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "C:\Users\olivi\AppData\Roaming\Python\Python312\site-packages\wandb\sdk\wandb_config.py", line 162, in __getattr__
+    return self.__getitem__(key)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\olivi\AppData\Roaming\Python\Python312\site-packages\wandb\sdk\wandb_config.py", line 130, in __getitem__
+    return self._items[key]
+           ~~~~~~~~~~~^^^^^
+KeyError: 'T_max'
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "c:\Users\olivi\.vscode\projects\handwrittendigit.py", line 80, in <module>
+    mnist_model=MNISTModel()
+                ^^^^^^^^^^^^
+  File "c:\Users\olivi\.vscode\projects\handwrittendigit.py", line 57, in __init__
+    self.scheduler = optim.lr_scheduler.CosineAnnealingLR(self.optimizer, T_max=config.T_max)
+                                                                                ^^^^^^^^^^^^
+  File "C:\Users\olivi\AppData\Roaming\Python\Python312\site-packages\wandb\sdk\wandb_config.py", line 164, in __getattr__
+    raise AttributeError(
+AttributeError: <class 'wandb.sdk.wandb_config.Config'> object has no attribute 'T_max'

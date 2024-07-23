@@ -1,0 +1,90 @@
+2024-07-16 15:16:29,434 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Current SDK version is 0.17.4
+2024-07-16 15:16:29,434 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Configure stats pid to 17916
+2024-07-16 15:16:29,434 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from C:\Users\olivi\.config\wandb\settings
+2024-07-16 15:16:29,434 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from C:\Users\olivi\.vscode\projects\wandb\settings
+2024-07-16 15:16:29,434 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-07-16 15:16:29,434 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-07-16 15:16:29,434 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'main.py', 'program_abspath': 'c:\\Users\\olivi\\.vscode\\projects\\main.py', 'program': 'c:\\Users\\olivi\\.vscode\\projects\\main.py'}
+2024-07-16 15:16:29,434 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-07-16 15:16:29,434 INFO    MainThread:17916 [wandb_init.py:_log_setup():529] Logging user logs to C:\Users\olivi\.vscode\projects\wandb\run-20240716_151629-5pp6yyir\logs\debug.log
+2024-07-16 15:16:29,434 INFO    MainThread:17916 [wandb_init.py:_log_setup():530] Logging internal logs to C:\Users\olivi\.vscode\projects\wandb\run-20240716_151629-5pp6yyir\logs\debug-internal.log
+2024-07-16 15:16:29,434 INFO    MainThread:17916 [wandb_init.py:init():569] calling init triggers
+2024-07-16 15:16:29,434 INFO    MainThread:17916 [wandb_init.py:init():576] wandb.init called with sweep_config: {}
+config: {'epochs': 10, 'batch_size': 128, 'lr': 0.001, 'dropout': 0.7982609409979825}
+2024-07-16 15:16:29,434 INFO    MainThread:17916 [wandb_init.py:init():619] starting backend
+2024-07-16 15:16:29,434 INFO    MainThread:17916 [wandb_init.py:init():623] setting up manager
+2024-07-16 15:16:29,442 INFO    MainThread:17916 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn, using: spawn
+2024-07-16 15:16:29,445 INFO    MainThread:17916 [wandb_init.py:init():631] backend started and connected
+2024-07-16 15:16:29,453 INFO    MainThread:17916 [wandb_init.py:init():720] updated telemetry
+2024-07-16 15:16:29,453 INFO    MainThread:17916 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-07-16 15:16:29,865 INFO    MainThread:17916 [wandb_run.py:_on_init():2402] communicating current version
+2024-07-16 15:16:30,015 INFO    MainThread:17916 [wandb_run.py:_on_init():2411] got version response 
+2024-07-16 15:16:30,015 INFO    MainThread:17916 [wandb_init.py:init():804] starting run threads in backend
+2024-07-16 15:16:30,343 INFO    MainThread:17916 [wandb_run.py:_console_start():2380] atexit reg
+2024-07-16 15:16:30,343 INFO    MainThread:17916 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2024-07-16 15:16:30,344 INFO    MainThread:17916 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2024-07-16 15:16:30,344 INFO    MainThread:17916 [wandb_run.py:_redirect():2325] Redirects installed.
+2024-07-16 15:16:30,350 INFO    MainThread:17916 [wandb_init.py:init():847] run started, returning control to user process
+2024-07-16 15:16:30,373 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Current SDK version is 0.17.4
+2024-07-16 15:16:30,373 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Configure stats pid to 17916
+2024-07-16 15:16:30,373 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from C:\Users\olivi\.config\wandb\settings
+2024-07-16 15:16:30,373 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from C:\Users\olivi\.vscode\projects\wandb\settings
+2024-07-16 15:16:30,373 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-07-16 15:16:30,373 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-07-16 15:16:30,373 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'main.py', 'program_abspath': 'c:\\Users\\olivi\\.vscode\\projects\\main.py', 'program': 'c:\\Users\\olivi\\.vscode\\projects\\main.py'}
+2024-07-16 15:16:30,373 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-07-16 15:16:30,373 INFO    MainThread:17916 [wandb_init.py:_log_setup():529] Logging user logs to C:\Users\olivi\.vscode\projects\wandb\run-20240716_151630-pz9e6c7x\logs\debug.log
+2024-07-16 15:16:30,373 INFO    MainThread:17916 [wandb_init.py:_log_setup():530] Logging internal logs to C:\Users\olivi\.vscode\projects\wandb\run-20240716_151630-pz9e6c7x\logs\debug-internal.log
+2024-07-16 15:16:30,373 INFO    MainThread:17916 [wandb_init.py:init():569] calling init triggers
+2024-07-16 15:16:30,373 INFO    MainThread:17916 [wandb_init.py:init():576] wandb.init called with sweep_config: {}
+config: {'epochs': 10, 'batch_size': 128, 'lr': 0.001, 'dropout': 0.708267462807888}
+2024-07-16 15:16:30,373 INFO    MainThread:17916 [wandb_init.py:init():614] wandb.init() called when a run is still active
+2024-07-16 15:16:30,400 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Current SDK version is 0.17.4
+2024-07-16 15:16:30,400 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Configure stats pid to 17916
+2024-07-16 15:16:30,400 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from C:\Users\olivi\.config\wandb\settings
+2024-07-16 15:16:30,400 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from C:\Users\olivi\.vscode\projects\wandb\settings
+2024-07-16 15:16:30,400 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-07-16 15:16:30,400 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-07-16 15:16:30,402 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'main.py', 'program_abspath': 'c:\\Users\\olivi\\.vscode\\projects\\main.py', 'program': 'c:\\Users\\olivi\\.vscode\\projects\\main.py'}
+2024-07-16 15:16:30,402 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-07-16 15:16:30,403 INFO    MainThread:17916 [wandb_init.py:_log_setup():529] Logging user logs to C:\Users\olivi\.vscode\projects\wandb\run-20240716_151630-c0njwge0\logs\debug.log
+2024-07-16 15:16:30,403 INFO    MainThread:17916 [wandb_init.py:_log_setup():530] Logging internal logs to C:\Users\olivi\.vscode\projects\wandb\run-20240716_151630-c0njwge0\logs\debug-internal.log
+2024-07-16 15:16:30,403 INFO    MainThread:17916 [wandb_init.py:init():569] calling init triggers
+2024-07-16 15:16:30,403 INFO    MainThread:17916 [wandb_init.py:init():576] wandb.init called with sweep_config: {}
+config: {'epochs': 10, 'batch_size': 128, 'lr': 0.001, 'dropout': 0.6815709676751465}
+2024-07-16 15:16:30,405 INFO    MainThread:17916 [wandb_init.py:init():614] wandb.init() called when a run is still active
+2024-07-16 15:16:30,425 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Current SDK version is 0.17.4
+2024-07-16 15:16:30,425 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Configure stats pid to 17916
+2024-07-16 15:16:30,425 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from C:\Users\olivi\.config\wandb\settings
+2024-07-16 15:16:30,425 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from C:\Users\olivi\.vscode\projects\wandb\settings
+2024-07-16 15:16:30,425 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-07-16 15:16:30,425 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-07-16 15:16:30,425 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'main.py', 'program_abspath': 'c:\\Users\\olivi\\.vscode\\projects\\main.py', 'program': 'c:\\Users\\olivi\\.vscode\\projects\\main.py'}
+2024-07-16 15:16:30,425 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-07-16 15:16:30,425 INFO    MainThread:17916 [wandb_init.py:_log_setup():529] Logging user logs to C:\Users\olivi\.vscode\projects\wandb\run-20240716_151630-3sx8ffa6\logs\debug.log
+2024-07-16 15:16:30,433 INFO    MainThread:17916 [wandb_init.py:_log_setup():530] Logging internal logs to C:\Users\olivi\.vscode\projects\wandb\run-20240716_151630-3sx8ffa6\logs\debug-internal.log
+2024-07-16 15:16:30,433 INFO    MainThread:17916 [wandb_init.py:init():569] calling init triggers
+2024-07-16 15:16:30,433 INFO    MainThread:17916 [wandb_init.py:init():576] wandb.init called with sweep_config: {}
+config: {'epochs': 10, 'batch_size': 128, 'lr': 0.001, 'dropout': 0.16213767947806615}
+2024-07-16 15:16:30,433 INFO    MainThread:17916 [wandb_init.py:init():614] wandb.init() called when a run is still active
+2024-07-16 15:16:30,453 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Current SDK version is 0.17.4
+2024-07-16 15:16:30,453 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Configure stats pid to 17916
+2024-07-16 15:16:30,453 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from C:\Users\olivi\.config\wandb\settings
+2024-07-16 15:16:30,453 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from C:\Users\olivi\.vscode\projects\wandb\settings
+2024-07-16 15:16:30,453 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-07-16 15:16:30,453 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-07-16 15:16:30,453 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'main.py', 'program_abspath': 'c:\\Users\\olivi\\.vscode\\projects\\main.py', 'program': 'c:\\Users\\olivi\\.vscode\\projects\\main.py'}
+2024-07-16 15:16:30,453 INFO    MainThread:17916 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-07-16 15:16:30,453 INFO    MainThread:17916 [wandb_init.py:_log_setup():529] Logging user logs to C:\Users\olivi\.vscode\projects\wandb\run-20240716_151630-rmowcnrj\logs\debug.log
+2024-07-16 15:16:30,457 INFO    MainThread:17916 [wandb_init.py:_log_setup():530] Logging internal logs to C:\Users\olivi\.vscode\projects\wandb\run-20240716_151630-rmowcnrj\logs\debug-internal.log
+2024-07-16 15:16:30,457 INFO    MainThread:17916 [wandb_init.py:init():569] calling init triggers
+2024-07-16 15:16:30,457 INFO    MainThread:17916 [wandb_init.py:init():576] wandb.init called with sweep_config: {}
+config: {'epochs': 10, 'batch_size': 128, 'lr': 0.001, 'dropout': 0.14768729024309485}
+2024-07-16 15:16:30,457 INFO    MainThread:17916 [wandb_init.py:init():614] wandb.init() called when a run is still active
+2024-07-16 15:21:37,224 INFO    MainThread:17916 [wandb_run.py:_finish():2109] finishing run oliviayi2007-university-of-calgary-in-alberta/digitrecognition/5pp6yyir
+2024-07-16 15:21:37,224 INFO    MainThread:17916 [wandb_run.py:_atexit_cleanup():2349] got exitcode: 0
+2024-07-16 15:21:37,224 INFO    MainThread:17916 [wandb_run.py:_restore():2332] restore
+2024-07-16 15:21:37,224 INFO    MainThread:17916 [wandb_run.py:_restore():2338] restore done
+2024-07-16 15:26:40,594 INFO    MainThread:17916 [wandb_run.py:_footer_history_summary_info():3991] rendering history
+2024-07-16 15:26:40,602 INFO    MainThread:17916 [wandb_run.py:_footer_history_summary_info():4023] rendering summary
+2024-07-16 15:26:40,681 INFO    MainThread:17916 [wandb_run.py:_footer_sync_info():3950] logging synced files

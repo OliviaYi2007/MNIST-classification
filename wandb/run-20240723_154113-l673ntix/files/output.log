@@ -1,0 +1,6 @@
+FITTING EPOCH 0:   0%|                                                                                                  | 0/3750 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "c:\Users\olivi\.vscode\projects\handwrittendigit.py", line 96, in <module>
+    wandb.log({"train_loss_step": loss, "lr": mnist_model.scheduler.get_last_lr()(0)})
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'list' object is not callable
