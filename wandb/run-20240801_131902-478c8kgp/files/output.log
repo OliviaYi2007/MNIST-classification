@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "c:\Users\olivi\.vscode\projects\handwrittendigit.py", line 25, in <module>
-    class MNISTModel(nn.Module):
-                     ^^
-NameError: name 'nn' is not defined
