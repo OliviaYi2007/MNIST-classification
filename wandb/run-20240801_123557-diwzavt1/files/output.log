@@ -1,0 +1,75 @@
+
+Training model with width: 64
+
+
+
+
+
+
+
+
+FITTING EPOCH 0:  99%|██████████████████████████████████████████████████████████████▎| 3709/3750 [00:17<00:00, 234.42it/s]
+
+FITTING EPOCH 0: 100%|███████████████████████████████████████████████████████████████| 3750/3750 [00:17<00:00, 210.19it/s]
+Width: 64 - TRAIN ACCURACY: 0.9526
+Width: 64 - TEST ACCURACY: 0.9496
+
+
+
+
+
+
+
+
+FITTING EPOCH 1:  99%|██████████████████████████████████████████████████████████████▍| 3713/3750 [00:17<00:00, 202.38it/s]
+
+FITTING EPOCH 1: 100%|███████████████████████████████████████████████████████████████| 3750/3750 [00:17<00:00, 215.02it/s]
+Width: 64 - TRAIN ACCURACY: 0.9622
+Width: 64 - TEST ACCURACY: 0.9592
+Training model with width: 128
+
+
+
+
+
+
+
+
+
+FITTING EPOCH 0:  96%|████████████████████████████████████████████████████████████▌  | 3607/3750 [00:18<00:00, 208.98it/s]
+
+FITTING EPOCH 0: 100%|███████████████████████████████████████████████████████████████| 3750/3750 [00:19<00:00, 190.87it/s]
+Width: 128 - TRAIN ACCURACY: 0.9617
+Width: 128 - TEST ACCURACY: 0.9566
+
+
+
+
+FITTING EPOCH 1:  53%|█████████████████████████████████▎                             | 1984/3750 [00:10<00:09, 192.60it/s]
+Traceback (most recent call last):
+  File "c:\Users\olivi\.vscode\projects\handwrittendigit.py", line 92, in <module>
+    for r_xs, r_ys in tqdm(dataloader_train, desc=f"FITTING EPOCH {i}"):
+  File "C:\Users\olivi\AppData\Roaming\Python\Python312\site-packages\tqdm\std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "C:\Users\olivi\AppData\Roaming\Python\Python312\site-packages\torch\utils\data\dataloader.py", line 631, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\olivi\AppData\Roaming\Python\Python312\site-packages\torch\utils\data\dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\olivi\AppData\Roaming\Python\Python312\site-packages\torch\utils\data\_utils\fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "C:\Users\olivi\AppData\Roaming\Python\Python312\site-packages\torchvision\datasets\mnist.py", line 146, in __getitem__
+    img = self.transform(img)
+          ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\olivi\AppData\Roaming\Python\Python312\site-packages\torchvision\transforms\transforms.py", line 95, in __call__
+    img = t(img)
+          ^^^^^^
+  File "C:\Users\olivi\AppData\Roaming\Python\Python312\site-packages\torchvision\transforms\transforms.py", line 137, in __call__
+    return F.to_tensor(pic)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\olivi\AppData\Roaming\Python\Python312\site-packages\torchvision\transforms\functional.py", line 176, in to_tensor
+    return img.to(dtype=default_float_dtype).div(255)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

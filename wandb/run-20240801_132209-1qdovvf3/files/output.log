@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "c:\Users\olivi\.vscode\projects\handwrittendigit.py", line 40, in <module>
+    mnist_model = MNISTModel(config.width)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\olivi\.vscode\projects\handwrittendigit.py", line 37, in __init__
+    self.to(get_default_device())
+            ^^^^^^^^^^^^^^^^^^
+NameError: name 'get_default_device' is not defined

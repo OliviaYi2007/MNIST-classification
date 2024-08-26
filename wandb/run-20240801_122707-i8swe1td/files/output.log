@@ -1,0 +1,36 @@
+
+FITTING EPOCH 0:   8%|████▍                                                     | 283/3750 [00:01<00:18, 186.54it/s]
+
+
+
+
+
+
+
+FITTING EPOCH 0:  92%|████████████████████████████████████████████████████▏    | 3437/3750 [00:15<00:01, 230.37it/s]
+
+FITTING EPOCH 0: 100%|█████████████████████████████████████████████████████████| 3750/3750 [00:16<00:00, 221.99it/s]
+Width: 64 - TRAIN ACCURACY: 0.9528
+Width: 64 - TEST ACCURACY: 0.9518
+
+
+
+
+
+
+FITTING EPOCH 1:  87%|█████████████████████████████████████████████████▋       | 3273/3750 [00:14<00:02, 222.11it/s]
+Traceback (most recent call last):
+  File "c:\Users\olivi\.vscode\projects\handwrittendigit.py", line 94, in <module>
+    loss = mnist_model.fit(xs, ys)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\olivi\.vscode\projects\handwrittendigit.py", line 72, in fit
+    self.optimizer.zero_grad()
+  File "C:\Users\olivi\AppData\Roaming\Python\Python312\site-packages\torch\_compile.py", line 24, in inner
+    return torch._dynamo.disable(fn, recursive)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\olivi\AppData\Roaming\Python\Python312\site-packages\torch\_dynamo\eval_frame.py", line 451, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\olivi\AppData\Roaming\Python\Python312\site-packages\torch\optim\optimizer.py", line 820, in zero_grad
+    with torch.autograd.profiler.record_function(self._zero_grad_profile_name):
+KeyboardInterrupt

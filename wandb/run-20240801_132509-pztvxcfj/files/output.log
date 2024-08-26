@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "c:\Users\olivi\.vscode\projects\handwrittendigit.py", line 79, in <module>
+    mnist_model=MNISTModel()
+                ^^^^^^^^^^^^
+TypeError: MNISTModel.__init__() missing 1 required positional argument: 'width'
