@@ -8,6 +8,7 @@ from torchvision.datasets import MNIST
 from torchvision.transforms import Compose, ToTensor
 from torch import nn, optim
 
+#Dictionary that contains hyperparameters for the training process (values can be changed)
 config = {
     "epochs": 100,
     "batch_size": 16,
@@ -15,13 +16,13 @@ config = {
     "width_1": 32,
     "width_2": 16
 }
-# Initialize wandb, set run name using widths
+# Initialize wandb, project name and run name can be edited
 wandb.init(
-    project="effect-of-width",
+    project="project_name",
     name=f"{config['width_1']}, {config['width_2']}",
     config=config
 )
-# Copy config into local variable
+# Overwrite local variable with config stored in wandb allowing for potential updates from the wandb interface
 config = wandb.config
 
 #Convert image to a tensor, reshape to vector of size 784
@@ -42,7 +43,7 @@ def to_t(tensor,device=get_default_device()):
 #Define neural network model class inheriting from the nn.Module (base class for neural network modules in PyTorch)
 class MNISTModel(nn.Module):
     def __init__(self, width_1, width_2):
-        #Initialize the attributes of the parent class
+        #Initialize the attributes of the parent class, using the constructor method, which initializes the model with a specified hidden layer width
         super().__init__()
         #Define layers
         self.layers = nn.Sequential(
@@ -69,7 +70,7 @@ class MNISTModel(nn.Module):
     def forward(self,X):
         return self.layers(X)
     
-    #Process input X through model and return predicted class labels
+    #Process input X through model and return predicted class labels (index of highest output value)
     def predict(self, X):
         #Disable gradient calculation
         with torch.no_grad():
@@ -79,47 +80,64 @@ class MNISTModel(nn.Module):
     def fit(self, X, Y):
         #Reset gradient
         self.optimizer.zero_grad()
+        #compute model prediction
         y_pred= self.forward(X)
+        #calculate loss
         loss= self.loss(y_pred,Y)
+        #backpropagation
         loss.backward()
+        #Updates model parameters, adjust the learning rate
         self.optimizer.step()
         self.scheduler.step() 
+        #return loss
         return loss.item()
     
+#Create an instance of the MNISTModel class with the specified width from the config
 mnist_model=MNISTModel(config.width_1, config.width_2)
 
 from torch.utils.data import DataLoader
-
+#set batch size to batch size in config
 BATCH_SIZE=config.batch_size
+#Shuffle data
 dataloader_train=DataLoader(data_train,batch_size=BATCH_SIZE, shuffle=True)
 dataloader_test=DataLoader(data_test, batch_size=BATCH_SIZE, shuffle=True)
 
 from tqdm import tqdm
-
+#set number of epochs to the epochs in config
 EPOCHS =config.epochs
-#change log for loss to every step rather than average
+#training loop looping for each epoch
+#Loops through batches of training data, with a progress bar provided by tqdm
 for i in range(EPOCHS):
-    for r_xs, r_ys in tqdm(dataloader_train,desc=f"FITTING EPOCH {i}"):
-        xs, ys = to_t(r_xs), to_t(r_ys)
+    for inputs, labels in tqdm(dataloader_train,desc=f"FITTING EPOCH {i}"):
+        #move the batch data to the appropriate device 
+        xs, ys = to_t(inputs), to_t(labels)
+        #calculate loss
         loss = mnist_model.fit(xs,ys)
+        #log onto wandb
         wandb.log({"train_loss_step": loss, "lr": mnist_model.scheduler.get_last_lr()[0]})
     print(f"EPOCH {i} completed")
     
-#for every EPOCH log training and test accuracy
+    #count the number correctly classified (train data)
     correct_train = 0
-    for r_xs, r_ys in dataloader_train:
-        xs, ys = to_t(r_xs), to_t(r_ys)
+    for inputs, labels in dataloader_train:
+        xs, ys = to_t(inputs), to_t(labels)
+        #prediction of class label
         y_pred = mnist_model.predict(xs)
+        #compares prediction with given label, if true, add number to correct_test
         correct_train += (ys == y_pred).sum().item()
+    #calculate train accuracy
     train_acc = correct_train / (len(dataloader_train) * BATCH_SIZE)
     print(f"TRAIN ACCURACY: {train_acc:.4f}")
     wandb.log({"train_accuracy": train_acc, "width_1": config.width_1, "width_2": config.width_2})
-
+    
+    #count number correctly classified (test data)
     correct_test= 0
-    for r_xs, r_ys in dataloader_test:
-        xs, ys = to_t(r_xs), to_t(r_ys)
+    for inputs, labels in dataloader_test:
+        xs, ys = to_t(inpupts), to_t(labels)
+        #prediction of class label
         y_pred = mnist_model.predict(xs)
         correct_test += (ys == y_pred).sum().item()
+    #calculate test accuracy
     test_acc = correct_test/ (len(dataloader_test) * BATCH_SIZE)
     print(f"TEST ACCURACY: {test_acc:.4f}")
     wandb.log({"test_accuracy": test_acc, "width_1": config.width_1, "width_2": config.width_2})
