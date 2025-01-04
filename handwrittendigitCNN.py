@@ -8,7 +8,6 @@ from torchvision.datasets import MNIST
 from torchvision.transforms import Compose, ToTensor
 from torch import nn, optim
 
-#Dictionary that contains hyperparameters for the training process (values can be changed)
 config = {
     "epochs": 100,
     "batch_size": 16,
@@ -16,7 +15,7 @@ config = {
     "width_1": 32,
     "width_2": 16
 }
-# Initialize wandb, project name and run name can be edited
+# Initialize wandb
 wandb.init(
     project="project_name",
     name=f"{config['width_1']}, {config['width_2']}",
