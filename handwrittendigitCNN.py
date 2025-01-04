@@ -22,28 +22,22 @@ wandb.init(
     name=f"{config['width_1']}, {config['width_2']}",
     config=config
 )
-# Overwrite local variable with config stored in wandb allowing for potential updates from the wandb interface
+
 config = wandb.config
 
-#Convert image to a tensor, reshape to vector of size 784
 transform = Compose ([
     ToTensor(),
 ])
-#Load training and testing dataset from MNIST
 data_train = MNIST(root="./", download= True, train= True, transform=transform)
 data_test = MNIST(root="./", download= True, train= False, transform=transform)
 
-#Return the default device (GPU if available, otherwise CPU)
 def get_default_device():
     return torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
-#Move tensor to specified device
 def to_t(tensor,device=get_default_device()):
     return tensor.to(device)
 
-#Define neural network model class inheriting from the nn.Module (base class for neural network modules in PyTorch)
 class MNISTModel(nn.Module):
     def __init__(self, width_1, width_2):
-        #Initialize the attributes of the parent class, using the constructor method, which initializes the model with a specified hidden layer width
         super().__init__()
         #Define layers
         self.layers = nn.Sequential(
@@ -66,50 +60,34 @@ class MNISTModel(nn.Module):
         self.optimizer= optim.Adam(self.parameters(), lr=config.lr)
         self.scheduler = optim.lr_scheduler.CosineAnnealingLR(self.optimizer, T_max)
         self.to(get_default_device())
-    #Transforms input X (batch of MNIST images flattened into vectors of size 784) into output through the NN layers
     def forward(self,X):
         return self.layers(X)
     
-    #Process input X through model and return predicted class labels (index of highest output value)
     def predict(self, X):
-        #Disable gradient calculation
         with torch.no_grad():
-            #return indices of the maximum value of the last dimension (output)
             return torch.argmax(self.forward(X),axis=-1)
     
     def fit(self, X, Y):
-        #Reset gradient
         self.optimizer.zero_grad()
-        #compute model prediction
         y_pred= self.forward(X)
-        #calculate loss
         loss= self.loss(y_pred,Y)
-        #backpropagation
         loss.backward()
-        #Updates model parameters, adjust the learning rate
         self.optimizer.step()
         self.scheduler.step() 
         #return loss
         return loss.item()
     
-#Create an instance of the MNISTModel class with the specified width from the config
 mnist_model=MNISTModel(config.width_1, config.width_2)
 
 from torch.utils.data import DataLoader
-#set batch size to batch size in config
 BATCH_SIZE=config.batch_size
-#Shuffle data
 dataloader_train=DataLoader(data_train,batch_size=BATCH_SIZE, shuffle=True)
 dataloader_test=DataLoader(data_test, batch_size=BATCH_SIZE, shuffle=True)
 
 from tqdm import tqdm
-#set number of epochs to the epochs in config
 EPOCHS =config.epochs
-#training loop looping for each epoch
-#Loops through batches of training data, with a progress bar provided by tqdm
 for i in range(EPOCHS):
     for inputs, labels in tqdm(dataloader_train,desc=f"FITTING EPOCH {i}"):
-        #move the batch data to the appropriate device 
         xs, ys = to_t(inputs), to_t(labels)
         #calculate loss
         loss = mnist_model.fit(xs,ys)
@@ -134,7 +112,6 @@ for i in range(EPOCHS):
     correct_test= 0
     for inputs, labels in dataloader_test:
         xs, ys = to_t(inpupts), to_t(labels)
-        #prediction of class label
         y_pred = mnist_model.predict(xs)
         correct_test += (ys == y_pred).sum().item()
     #calculate test accuracy
