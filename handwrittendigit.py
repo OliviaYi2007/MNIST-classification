@@ -88,19 +88,17 @@ for i in range(EPOCHS):
     correct_train = 0
     for inputs, labels in dataloader_train:
         xs, ys = to_t(inputs), to_t(labels)
-        #prediction of class label
         y_pred = mnist_model.predict(xs)
         correct_train += (ys == y_pred).sum().item()
-    #calculate train accuracy
+    
     train_acc = correct_train / (len(dataloader_train) * BATCH_SIZE)
     print(f"TRAIN ACCURACY: {train_acc:.4f}")
     wandb.log({"train_accuracy": train_acc, "width_1": config.width_1, "width_2": config.width_2})
     
-    #count number correctly classified (test data)
+
     correct_test= 0
     for inputs, labels in dataloader_test:
         xs, ys = to_t(inpupts), to_t(labels)
-        #prediction of class label
         y_pred = mnist_model.predict(xs)
         correct_test += (ys == y_pred).sum().item()
     #calculate test accuracy
