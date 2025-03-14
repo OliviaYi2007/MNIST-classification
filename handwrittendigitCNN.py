@@ -15,7 +15,7 @@ config = {
     "width_1": 32,
     "width_2": 16
 }
-# Initialize wandb
+
 wandb.init(
     project="project_name",
     name=f"{config['width_1']}, {config['width_2']}",
@@ -38,7 +38,6 @@ def to_t(tensor,device=get_default_device()):
 class MNISTModel(nn.Module):
     def __init__(self, width_1, width_2):
         super().__init__()
-        #Define layers
         self.layers = nn.Sequential(
             nn.Conv2d(1, width_1, kernel_size=3, stride=1, padding=1),
             nn.ReLU(),
@@ -73,7 +72,6 @@ class MNISTModel(nn.Module):
         loss.backward()
         self.optimizer.step()
         self.scheduler.step() 
-        #return loss
         return loss.item()
     
 mnist_model=MNISTModel(config.width_1, config.width_2)
@@ -98,7 +96,6 @@ for i in range(EPOCHS):
     correct_train = 0
     for inputs, labels in dataloader_train:
         xs, ys = to_t(inputs), to_t(labels)
-        #prediction of class label
         y_pred = mnist_model.predict(xs)
         #compares prediction with given label, if true, add number to correct_test
         correct_train += (ys == y_pred).sum().item()
