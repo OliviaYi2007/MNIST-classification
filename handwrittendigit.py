@@ -101,7 +101,6 @@ for i in range(EPOCHS):
         xs, ys = to_t(inpupts), to_t(labels)
         y_pred = mnist_model.predict(xs)
         correct_test += (ys == y_pred).sum().item()
-    #calculate test accuracy
     test_acc = correct_test/ (len(dataloader_test) * BATCH_SIZE)
     print(f"TEST ACCURACY: {test_acc:.4f}")
     wandb.log({"test_accuracy": test_acc, "width_1": config.width_1, "width_2": config.width_2})
