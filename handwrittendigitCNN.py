@@ -86,9 +86,7 @@ EPOCHS =config.epochs
 for i in range(EPOCHS):
     for inputs, labels in tqdm(dataloader_train,desc=f"FITTING EPOCH {i}"):
         xs, ys = to_t(inputs), to_t(labels)
-        #calculate loss
         loss = mnist_model.fit(xs,ys)
-        #log onto wandb
         wandb.log({"train_loss_step": loss, "lr": mnist_model.scheduler.get_last_lr()[0]})
     print(f"EPOCH {i} completed")
     
@@ -97,9 +95,7 @@ for i in range(EPOCHS):
     for inputs, labels in dataloader_train:
         xs, ys = to_t(inputs), to_t(labels)
         y_pred = mnist_model.predict(xs)
-        #compares prediction with given label, if true, add number to correct_test
         correct_train += (ys == y_pred).sum().item()
-    #calculate train accuracy
     train_acc = correct_train / (len(dataloader_train) * BATCH_SIZE)
     print(f"TRAIN ACCURACY: {train_acc:.4f}")
     wandb.log({"train_accuracy": train_acc, "width_1": config.width_1, "width_2": config.width_2})
@@ -110,7 +106,6 @@ for i in range(EPOCHS):
         xs, ys = to_t(inpupts), to_t(labels)
         y_pred = mnist_model.predict(xs)
         correct_test += (ys == y_pred).sum().item()
-    #calculate test accuracy
     test_acc = correct_test/ (len(dataloader_test) * BATCH_SIZE)
     print(f"TEST ACCURACY: {test_acc:.4f}")
     wandb.log({"test_accuracy": test_acc, "width_1": config.width_1, "width_2": config.width_2})
