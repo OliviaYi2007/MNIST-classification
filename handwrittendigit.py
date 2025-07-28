@@ -44,8 +44,8 @@ class MNISTModel(nn.Module):
             nn.ReLU(),
             nn.Linear(width, 10)
         )
-        #Use loss function for training, set optimizer with Adam algorithm using parameters of the model
-        #Use a scheduler for learning rate, move model to default device
+        #Use loss function for training, set optimizer with Adam algorithm using params of the model
+        #Use scheduler for learning rate, move model to default device
         T_max= 60000/config.batch_size*config.epochs 
         self.loss= nn.CrossEntropyLoss()
         self.optimizer= optim.Adam(self.parameters(), lr=config.lr)
@@ -83,8 +83,7 @@ for i in range(EPOCHS):
         loss = mnist_model.fit(xs,ys)
         wandb.log({"train_loss_step": loss, "lr": mnist_model.scheduler.get_last_lr()[0]})
     print(f"EPOCH {i} completed")
-    
-    #count the number correctly classified (train data)
+
     correct_train = 0
     for inputs, labels in dataloader_train:
         xs, ys = to_t(inputs), to_t(labels)
