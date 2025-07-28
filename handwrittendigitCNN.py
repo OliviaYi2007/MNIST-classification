@@ -51,9 +51,9 @@ class MNISTModel(nn.Module):
             nn.Linear(64, 10)
         )
 
-        #Use loss function for training, set optimizer with Adam algorithm using parameters of the model
+        #Use loss function for training, set optimizer with Adam algorithm using params of the model
         #Use a scheduler for learning rate, move model to default device
-        T_max= 60000/config.batch_size*config.epochs #Maximum number of iterations for the cosine annealing schedule.
+        T_max= 60000/config.batch_size*config.epochs 
         self.loss= nn.CrossEntropyLoss()
         self.optimizer= optim.Adam(self.parameters(), lr=config.lr)
         self.scheduler = optim.lr_scheduler.CosineAnnealingLR(self.optimizer, T_max)
@@ -90,7 +90,6 @@ for i in range(EPOCHS):
         wandb.log({"train_loss_step": loss, "lr": mnist_model.scheduler.get_last_lr()[0]})
     print(f"EPOCH {i} completed")
     
-    #count the number correctly classified (train data)
     correct_train = 0
     for inputs, labels in dataloader_train:
         xs, ys = to_t(inputs), to_t(labels)
@@ -99,8 +98,7 @@ for i in range(EPOCHS):
     train_acc = correct_train / (len(dataloader_train) * BATCH_SIZE)
     print(f"TRAIN ACCURACY: {train_acc:.4f}")
     wandb.log({"train_accuracy": train_acc, "width_1": config.width_1, "width_2": config.width_2})
-    
-    #count number correctly classified (test data)
+
     correct_test= 0
     for inputs, labels in dataloader_test:
         xs, ys = to_t(inpupts), to_t(labels)
